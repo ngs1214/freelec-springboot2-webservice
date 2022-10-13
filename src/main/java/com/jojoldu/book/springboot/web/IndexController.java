@@ -4,8 +4,6 @@ import com.jojoldu.book.springboot.config.auth.LoginUser;
 import com.jojoldu.book.springboot.config.auth.dto.SessionUser;
 import com.jojoldu.book.springboot.service.PostsService;
 import com.jojoldu.book.springboot.web.dto.PostsResponseDto;
-import com.sun.org.apache.xpath.internal.operations.Mod;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,9 +33,6 @@ public class IndexController {
         model.addAttribute("posts", postsService.findAllDesc());
         if (user != null) {
             model.addAttribute("userName", user.getName());
-            System.out.println("이름"+user.getName());
-        }else {
-            System.out.println("널");
         }
 
         return "index";
