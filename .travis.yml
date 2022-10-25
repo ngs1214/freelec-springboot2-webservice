@@ -14,13 +14,6 @@ cache:
 
 script: "./gradlew clean build"
 
-# CI 실행 완료 시 메일로 알람
-notifications:
-  email:
-    recipients:
-      - ngs1214@gmail.com
-
-
 before_deploy:
   - zip -r freelec-springboot2-webservice *
   - mkdir -p deploy
@@ -31,10 +24,17 @@ deploy:
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
 
-
     bucket: freelec-springboot-build1112
     region: ap-northeast-2
     skip_cleanup: true
     acl: private
     local_dir: deploy
     wait-until-deployed: true
+
+
+
+# CI 실행 완료 시 메일로 알람
+notifications:
+  email:
+    recipients:
+      - ngs1214@gmail.com
